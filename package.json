@@ -37,6 +37,9 @@
     "e2e": "npm run build:prod && mocha --timeout 300000 --require ts-node/register e2e/**/*.spec.ts",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
+  "dependencies": {
+    "@casinocoin/libjs": "./casinocoin-libjs-2.0.0.tgz"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.12.1",
     "@angular/cli": "7.3.3",
