@@ -19,11 +19,12 @@ export class HomeComponent implements OnInit {
       server: 'wss://moon.casinocoin.eu:6006'
     });
     api.connect().then(() => {
-      console.log('connected');
-      return api.connection.request({
-        command: 'test_command',
-        data: { openOnOtherPort: true },
-      });
+      console.log('api instantiated and connected!');
+      console.log(api);
+      // return api.connection.request({
+      //   command: 'test_command',
+      //   data: { openOnOtherPort: true },
+      // });
     });
   }
 
