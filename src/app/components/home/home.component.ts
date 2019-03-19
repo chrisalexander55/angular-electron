@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CasinocoinAPI} from '@casinocoin/libjs';
+import { GetServerInfoResponse } from '@casinocoin/libjs/common/serverinfo';
 
 @Component({
   selector: 'app-home',
@@ -18,14 +19,20 @@ export class HomeComponent implements OnInit {
     const api = new CasinocoinAPI({
       server: 'wss://moon.casinocoin.eu:6006'
     });
-    api.connect().then(() => {
-      console.log('api instantiated and connected!');
-      console.log(api);
-      // return api.connection.request({
-      //   command: 'test_command',
-      //   data: { openOnOtherPort: true },
-      // });
-    });
+    api.connect()
+      .then(() => {
+        console.log('api instantiated and connected!');
+        console.log(api);
+        return api.getServerInfo();
+      })
+      .then((res: GetServerInfoResponse) => {
+        console.log('serverInfo retrieved!');
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.log('error!');
+        console.log(err);
+      });
   }
 
 }
