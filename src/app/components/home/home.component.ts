@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   public onTestCSCConn(e: Event) {
     // connect to casinocoind
     const api = new CasinocoinAPI({
-      server: 'ws://wst01.casinocoin.org:7007'
+      server: 'wss://csc-node-de-e.casinocoin.eu:4443'
     });
     api.connect()
       .then(() => {
